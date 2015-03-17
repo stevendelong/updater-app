@@ -1,0 +1,53 @@
+<head>
+  <title>Acuity Logic</title>
+</head>
+
+<body>
+<!-- BEGIN: Sticky Header -->
+<div id="header_container">
+    <div id="header">
+       		<div class="row">
+				<div class="col-md-4"><strong>Latest Updates</strong></div>
+				<div class="col-md-4" id="divctn">Latest Updates</div>
+				<div class="col-md-4" id="divrght">{{> loginButtons align="right"}}</div>
+			</div>
+	</div>
+		
+	{{#if currentUser}}
+		<form class="new-updates">
+			<input type="text" name="title" placeholder="Newest update">
+			<input type="submit" value="Submit">
+		</form>
+	{{/if}}
+
+		<ul>
+	    	{{#each currentevents}}
+	    		{{> currentevent}}
+	    	{{/each}}
+	   	</ul>
+</div>
+<!-- END: Sticky Header -->
+ 
+<!-- BEGIN: Page Content -->
+<div id="container">
+    
+      <iframe src="https://www.myedoo.com/Blink" id="content" class="myIframe"></iframe>
+    
+</div>
+<!-- END: Page Content -->
+ 
+<!-- BEGIN: Sticky Footer -->
+<div id="footer_container">
+    <div id="footer">
+        Eye Doctor's Optical Outlets
+    </div>
+</div>
+<!-- END: Sticky Footer -->
+
+</body>
+
+<template name="currentevent">
+    <li>
+    	{{title}} {{#if currentUser}}<button class="delete">X</button>{{/if}}
+    </li>
+</template>
